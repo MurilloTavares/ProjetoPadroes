@@ -52,5 +52,5 @@ public class Reserva implements Serializable {
     public void setCpf(CPF cpf) {
         this.cpf = cpf;
     }
-        
+
 }
