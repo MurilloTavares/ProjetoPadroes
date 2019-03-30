@@ -4,7 +4,7 @@ import br.edu.ifpb.projetopadroes.entity.Atracao;
 import java.util.Comparator;
 import java.util.List;
 
-public class OrdenarAtracoesData extends OrdenarAtracoesStrategy{
+public class OrdenarAtracoesData implements OrdenarAtracoesStrategy{
 
     @Override
     public List<Atracao> ordenar(List<Atracao> lista) {

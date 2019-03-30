@@ -1,11 +1,10 @@
 package br.edu.ifpb.projetopadroes.util;
 
 import br.edu.ifpb.projetopadroes.entity.Atracao;
-import br.edu.ifpb.projetopadroes.entity.Valor;
 import java.util.Comparator;
 import java.util.List;
 
-public class OrdenarAtracoesIngresso extends OrdenarAtracoesStrategy{
+public class OrdenarAtracoesIngresso implements OrdenarAtracoesStrategy{
 
     @Override
     public List<Atracao> ordenar(List<Atracao> lista) {
