@@ -4,4 +4,6 @@ import br.edu.ifpb.projetopadroes.entity.Atracao;
 
 public interface AtracaoDAO extends DAO<Atracao>{
     
+    public Atracao buscar (int id);
+    
 }

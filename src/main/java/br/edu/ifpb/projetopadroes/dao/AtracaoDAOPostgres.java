@@ -34,6 +34,11 @@ public class AtracaoDAOPostgres implements AtracaoDAO{
     public Atracao buscar(Atracao atracao) {
         return em.find(Atracao.class, atracao.getId());
     }
+
+    @Override
+    public Atracao buscar(int id) {
+        return em.find(Atracao.class, id);
+    }
     
     @Override
     public List<Atracao> listar() {
