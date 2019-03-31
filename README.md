@@ -4,5 +4,5 @@ O Sistema trata-se de um software responsável por disponibilizar a reserva de a
 
 #### Equipe:
 * Murillo
-* Kaique
+* Kaique Augusto
 * Matheus
