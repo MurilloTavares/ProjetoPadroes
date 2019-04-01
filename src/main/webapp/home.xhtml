@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="resources/css/style.css" type="text/css" rel="stylesheet" />
+    </h:head>
+    <h:body>
+        <b:form>
+            <!-- row de cima -->
+            <div id="top-row">
+                <b:button value="Cadastrar nova atração" href="cadastrarAtracoes.xhtml"
+                          look="success" size="lg"/>
+            </div>
+
+            <!-- row das atracoes -->
+            <b:row>
+                <b:container style="padding-top: 30px;">
+                    <b:row>
+                        <h3> Atrações </h3>
+                    </b:row>
+
+                    <b:row>
+                        <ui:repeat value="#{atracaoController.listar()}" var="atracao">
+                            <b:column span="3">
+
+                                <b:thumbnail>
+                                    <center><h3>#{atracao.nome}</h3></center>
+
+                                    <b:panelGrid colSpans="8,4">
+                                        Data de apresentação:
+                                        <b:label value="dia #{atracao.dataApresentacao}"/>
+
+                                        Duração:
+                                        <b:label value="#{atracao.duracaoMin} min."/>
+
+                                        Ingressos disponíveis:
+                                        <b:label value="#{atracao.quantIngresso - atracao.reservas.size()}"/>
+
+                                        Valor ingresso:
+                                        <b:label value="#{atracao.valorIngresso.formatado()}"/>
+                                    </b:panelGrid>
+
+                                    <b:commandButton value="Fazer reserva" look="default" style="width: 100%;"
+                                                     action="#{atracaoController.redReserva(atracao)}" />
+
+                                </b:thumbnail>
+
+                            </b:column>
+                        </ui:repeat>
+                    </b:row>
+                </b:container>
+            </b:row>
+
+        </b:form>
+    </h:body>
+</html>

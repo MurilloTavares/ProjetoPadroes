@@ -2,11 +2,13 @@ package br.edu.ifpb.projetopadroes.controller;
 
 import br.edu.ifpb.projetopadroes.dao.AtracaoDAO;
 import br.edu.ifpb.projetopadroes.entity.Atracao;
+import java.io.IOException;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 @ManagedBean(name = "atracaoController")
 @ViewScoped
@@ -20,6 +22,11 @@ public class AtracaoController {
     @PostConstruct
     public void init() {
         atracao = new Atracao();
+    }
+    
+    public void redReserva(Atracao a) throws IOException{
+        String path = "reserva.xhtml?id="+a.getId();
+        FacesContext.getCurrentInstance().getExternalContext().redirect(path);
     }
     
     public List<Atracao> listar(){
