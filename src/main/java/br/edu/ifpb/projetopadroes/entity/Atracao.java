@@ -29,6 +29,9 @@ public class Atracao implements Serializable {
     @OneToMany
     @JoinColumn(name = "atracao")
     private List<Reserva> reservas;
+    
+    // numero maximo de reservas
+    private int quantIngresso;
 
     public Atracao() {
     }
@@ -79,6 +82,14 @@ public class Atracao implements Serializable {
 
     public void setReservas(List<Reserva> reservas) {
         this.reservas = reservas;
+    }
+
+    public int getQuantIngresso() {
+        return quantIngresso;
+    }
+
+    public void setQuantIngresso(int quantIngresso) {
+        this.quantIngresso = quantIngresso;
     }
     
 }
