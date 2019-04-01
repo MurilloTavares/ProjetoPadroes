@@ -15,6 +15,13 @@
     </properties>
     
     <dependencies>
+        
+        <dependency>
+            <groupId>net.bootsfaces</groupId>
+            <artifactId>bootsfaces</artifactId>
+            <version>1.4.1</version>
+            <scope>compile</scope>
+        </dependency>       
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>javax.faces</artifactId>
