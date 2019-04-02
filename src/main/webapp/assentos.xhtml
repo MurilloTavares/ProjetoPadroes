@@ -2,95 +2,118 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Cadastrar assentos</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="resources/css/assentos.css" type="text/css" rel="stylesheet" />
     </h:head>
     <h:body>
-        <div>
-            <h2 style="text-align: center">Assentos Disponiveis</h2>
-            <div style="margin-left: 30%;
-                 margin-top: 5%;">
+        <b:container>
             
-            <table>
-                <tr>
-                  <th>
-                    <button class="dot" name="e1">E1</button>
-                    <button class="dot" name="e2">E2</button>
-                    <button class="dot" name="e3">E3</button>
-                    <button class="dot" name="e4">E4</button>
-                    <button class="dot" name="e5">E5</button>
-                    <button class="dot" name="e6">E6</button>
-                    <button class="dot" name="e7">E7</button>
-                    <button class="dot" name="e8">E8</button>
-                    <button class="dot" name="e9">E9</button>
-                    <button class="dot" name="e10">E10</button>
-                  </th>
-                </tr>
+            <h2 style="text-align: center">Assentos Disponiveis</h2>
+            <div style="margin-left: 30%; margin-top: 5%;">  
+                <table>
+                    <tr>
+                      <th>
+                        <button class="dot" name="e1">E1</button>
+                        <button class="dot" name="e2">E2</button>
+                        <button class="dot" name="e3">E3</button>
+                        <button class="dot" name="e4">E4</button>
+                        <button class="dot" name="e5">E5</button>
+                        <button class="dot" name="e6">E6</button>
+                        <button class="dot" name="e7">E7</button>
+                        <button class="dot" name="e8">E8</button>
+                        <button class="dot" name="e9">E9</button>
+                        <button class="dot" name="e10">E10</button>
+                      </th>
+                    </tr>
 
-              <tr>
-                  <th>
-                    <button class="dot" name="d1">D1</button>
-                    <button class="dot" name="d2">D2</button>
-                    <button class="dot" name="d3">D3</button>
-                    <button class="dot" name="d4">D4</button>
-                    <button class="dot" name="d5">D5</button>
-                    <button class="dot" name="d6">D6</button>
-                    <button class="dot" name="d7">D7</button>
-                    <button class="dot" name="d8">D8</button>
-                    <button class="dot" name="d9">D9</button>
-                    <button class="dot" name="d10">D10</button>
-                  </th>
-                </tr>
+                  <tr>
+                      <th>
+                        <button class="dot" name="d1">D1</button>
+                        <button class="dot" name="d2">D2</button>
+                        <button class="dot" name="d3">D3</button>
+                        <button class="dot" name="d4">D4</button>
+                        <button class="dot" name="d5">D5</button>
+                        <button class="dot" name="d6">D6</button>
+                        <button class="dot" name="d7">D7</button>
+                        <button class="dot" name="d8">D8</button>
+                        <button class="dot" name="d9">D9</button>
+                        <button class="dot" name="d10">D10</button>
+                      </th>
+                    </tr>
 
-                <tr>
-                  <th>
-                    <button class="dot" name="c1">C1</button>
-                    <button class="dot" name="c2">C2</button>
-                    <button class="dot" name="c3">C3</button>
-                    <button class="dot" name="c4">C4</button>
-                    <button class="dot" name="c5">C5</button>
-                    <button class="dot" name="c6">C6</button>
-                    <button class="dot" name="c7">C7</button>
-                    <button class="dot" name="c8">C8</button>
-                    <button class="dot" name="c9">C9</button>
-                    <button class="dot" name="c10">C10</button>
-                  </th>
-                </tr>
-                
-                <tr>
-                    <th>
-                        <button class="dot" name="b1">B1</button>
-                        <button class="dot" name="b2">B2</button>
-                        <button class="dot" name="b3">B3</button>
-                        <button class="dot" name="b4">B4</button>
-                        <button class="dot" name="b5">B5</button>
-                        <button class="dot" name="b6">B6</button>
-                        <button class="dot" name="b7">B7</button>
-                        <button class="dot" name="b8">B8</button>
-                        <button class="dot" name="b9">B9</button>
-                        <button class="dot" name="b10">B10</button>
-                    </th>
-                </tr>
+                    <tr>
+                      <th>
+                        <button class="dot" name="c1">C1</button>
+                        <button class="dot" name="c2">C2</button>
+                        <button class="dot" name="c3">C3</button>
+                        <button class="dot" name="c4">C4</button>
+                        <button class="dot" name="c5">C5</button>
+                        <button class="dot" name="c6">C6</button>
+                        <button class="dot" name="c7">C7</button>
+                        <button class="dot" name="c8">C8</button>
+                        <button class="dot" name="c9">C9</button>
+                        <button class="dot" name="c10">C10</button>
+                      </th>
+                    </tr>
 
-                <tr>
-                 <th>
-                    <button class="dot" name="a3">A3</button>
-                    <button class="dot" name="a4">A4</button>
-                    <button class="dot" name="a5">A5</button>
-                    <button class="dot" name="a6">A6</button>
-                    <button class="dot" name="a7">A7</button>
-                    <button class="dot" name="a8">A8</button>
-                    <button class="dot" name="a8">A9</button>
-                    <button class="dot" name="a8">A10</button>
-                  </th>
-                    
-                </tr>
-            </table>
+                    <tr>
+                        <th>
+                            <button class="dot" name="b1">B1</button>
+                            <button class="dot" name="b2">B2</button>
+                            <button class="dot" name="b3">B3</button>
+                            <button class="dot" name="b4">B4</button>
+                            <button class="dot" name="b5">B5</button>
+                            <button class="dot" name="b6">B6</button>
+                            <button class="dot" name="b7">B7</button>
+                            <button class="dot" name="b8">B8</button>
+                            <button class="dot" name="b9">B9</button>
+                            <button class="dot" name="b10">B10</button>
+                        </th>
+                    </tr>
+
+                    <tr>
+                     <th>
+                        <button class="dot" name="a3">A1</button>
+                        <button class="dot" name="a3">A2</button>
+                        <button class="dot" name="a3">A3</button>
+                        <button class="dot" name="a4">A4</button>
+                        <button class="dot" name="a5">A5</button>
+                        <button class="dot" name="a6">A6</button>
+                        <button class="dot" name="a7">A7</button>
+                        <button class="dot" name="a8">A8</button>
+                        <button class="dot" name="a8">A9</button>
+                        <button class="dot" name="a8">A10</button>
+                      </th>
+
+                    </tr>
+                </table>
+                <h:form>
+                    <div style="margin-top: 5%">  
+                    <table>
+                        <tr>
+                            <th>Assento<h:inputText  class="input"  value=""/></th>
+                        </tr>
+                        <tr>
+                            <th>Nome Completo<h:inputText  class="input"  value=""/></th>
+                        </tr>
+                        <tr>
+                            <th>CPF<h:inputText  class="input"  value=""/></th>
+                        </tr>
+                        <tr>
+                            <th>Email<h:inputText  class="input"  value=""/></th>
+                        </tr>
+                    </table>
+                        <h:commandButton value="Cadastrar assento" action="#"/>
+                </div>
+                </h:form>
             </div>
-        </div>
+           
+        </b:container>
+        
     </h:body>
 </html>
 
