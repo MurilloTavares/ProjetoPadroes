@@ -4,20 +4,36 @@ import br.edu.ifpb.projetopadroes.dao.AtracaoDAO;
 import br.edu.ifpb.projetopadroes.dao.ReservaDAO;
 import br.edu.ifpb.projetopadroes.entity.Atracao;
 import br.edu.ifpb.projetopadroes.entity.Reserva;
+import java.io.Serializable;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.inject.Named;
+import javax.faces.context.FacesContext;
 
-@Named
+@ManagedBean
 @ViewScoped
-public class ReservaController {
+public class ReservaController implements Serializable{
     
     @EJB
     private ReservaDAO rDao;
+    @EJB
+    private AtracaoDAO aDao;
     
     private Atracao atracao;
     private Reserva reserva;
 
+    @PostConstruct
+    public void init() {
+        String param = FacesContext.getCurrentInstance()
+                .getExternalContext()
+                .getRequestParameterMap()
+                .get("id");
+        int id = Integer.parseInt(param);
+        atracao = aDao.buscar(id);
+        reserva = new Reserva();
+    }
+    
     public void reservar(){
         rDao.reservar(atracao, reserva);
     }
