@@ -36,6 +36,7 @@ public class ReservaController implements Serializable{
     
     public void reservar(){
         rDao.reservar(atracao, reserva);
+        atracao = aDao.buscar(atracao);
     }
     
     // Getters e Setters
