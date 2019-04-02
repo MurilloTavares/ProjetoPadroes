@@ -21,40 +21,42 @@
                 <b:column span="5">
                     <b:inputText label="Nome da Atração" 
                                  value="#{atracaoController.atracao.nome}"
-                                 required="true"></b:inputText>
+                                 required="true" requiredMessage="Nome obrigatório" />
+                    <b:message />
 
 
                     <b:inputText value="#{atracaoController.atracao.duracaoMin}"
                                  mask="integer"                                 
-                                 label="Duração em minutos"
-                                 required="true"></b:inputText>
+                                 label="Duração em minutos" />
 
 
                     <b:inputText value="#{atracaoController.atracao.quantIngresso}"
                                  mask="integer"
                                  label="Quantidade de Ingressos"
-                                 required="true"/>
+                                 required="true"
+                                 requiredMessage="Informe a quantidade de ingressos disponivel"/>
+                    <b:message />
 
 
                     <b:inputText value="#{atracaoController.atracao.valorIngresso}"
                                  converter="converter.valor"
                                  mask="integer"
                                  label="Valor do Ingresso" 
-                                 required="true"/>
+                                 required="true" requiredMessage="Informe o valor do ingresso"/>
+                    <b:message />
+                    
                     <b:row>
-                         <b:datepicker 
+                        <b:datepicker id="dt"
                         large-screen="one-third"
                         value="#{atracaoController.atracao.dataApresentacao}"
-                        required="true"/>
-                    
-                    <b:commandButton  value="Salvar" action="#{atracaoController.salvar()}"></b:commandButton>
+                        required="true" requiredMessage="Informe a data da apresentação"/>
                     </b:row>
-                   
-
+                    <b:message for="dt"/>
+                    
+                   <b:commandButton  value="Salvar" action="#{atracaoController.salvar()}"></b:commandButton>
+                    
                 </b:column>
 
-
-                
             </b:form>
         </b:container>
 

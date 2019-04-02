@@ -11,6 +11,7 @@ public class ValorConverter implements Converter{
 
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
+        if(string == null || string.isEmpty()) return null;
         String replace = string.replace(",", ".");
         return new Valor(Float.parseFloat(replace));
     }
