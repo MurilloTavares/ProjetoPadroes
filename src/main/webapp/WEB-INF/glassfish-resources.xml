@@ -5,8 +5,8 @@
         <property name="serverName" value="localhost"/>
         <property name="portNumber" value="5432"/>
         <property name="databaseName" value="PadroesDB"/>
-        <property name="User" value="postgres"/>
-        <property name="Password" value="matheus123"/>
+        <property name="User" value="kaique"/>
+        <property name="Password" value="k123456"/>
         <property name="URL" value="jdbc:postgresql://localhost:5432/PadroesDB"/>
         <property name="driverClass" value="org.postgresql.Driver"/>
     </jdbc-connection-pool>
