@@ -5,38 +5,56 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
     <h:head>
-        <title>BootsFaces Basic Page</title>
+        <title>Cadastrar Atrações</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="resources/css/style.css" type="text/css" rel="stylesheet" />
     </h:head>
     <h:body>
-        <b:container>
+        <div id="top-row">
+            <b:button value="Reservar Atração" href="home.xhtml"
+                      look="success" size="lg"/>
+        </div>
+        <b:container style="margin-top: 35px;">
+
             <b:form>
-                <b:column>
+
+                <b:column span="5">
                     <b:inputText label="Nome da Atração" 
-                                 value="#{atracaoController.atracao.nome}"></b:inputText>
-                </b:column>
-                <b:column>                   
+                                 value="#{atracaoController.atracao.nome}"
+                                 required="true"></b:inputText>
+
+
+                    <b:inputText value="#{atracaoController.atracao.duracaoMin}"
+                                 mask="integer"                                 
+                                 label="Duração em minutos"
+                                 required="true"></b:inputText>
+
+
+                    <b:inputText value="#{atracaoController.atracao.quantIngresso}"
+                                 mask="integer"
+                                 label="Quantidade de Ingressos"
+                                 required="true"/>
+
+
                     <b:inputText value="#{atracaoController.atracao.valorIngresso}"
                                  converter="converter.valor"
                                  mask="integer"
-                                 label="Valor do Ingresso" />
-                </b:column>
-                <b:column>
-                    <b:inputText value="#{atracaoController.atracao.duracaoMin}"
-                                 mask="integer"                                 
-                                 label="Duração em minutos"></b:inputText>
+                                 label="Valor do Ingresso" 
+                                 required="true"/>
+                    <b:row>
+                         <b:datepicker 
+                        large-screen="one-third"
+                        value="#{atracaoController.atracao.dataApresentacao}"
+                        required="true"/>
+                    
+                    <b:commandButton  value="Salvar" action="#{atracaoController.salvar()}"></b:commandButton>
+                    </b:row>
+                   
 
                 </b:column>
-                <b:column>                   
-                    <b:inputText value="#{atracaoController.atracao.quantIngresso}"
-                                 mask="integer"
-                                 label="Quantidade de Ingressos"/>
-                </b:column>
-                <b:column><b:datepicker tooltip="large-screen='one-third'" 
-                                        large-screen="one-third"
-                                        value="#{atracaoController.atracao.dataApresentacao}"/></b:column>
 
 
-                <b:commandButton value="Salvar" action="#{atracaoController.salvar()}"></b:commandButton>
+                
             </b:form>
         </b:container>
 
