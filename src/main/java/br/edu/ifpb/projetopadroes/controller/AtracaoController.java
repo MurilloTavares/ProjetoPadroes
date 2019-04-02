@@ -25,7 +25,7 @@ public class AtracaoController {
     }
     
     public void redReserva(Atracao a) throws IOException{
-        String path = "reserva.xhtml?id="+a.getId();
+        String path = "assentos.xhtml?id="+a.getId();
         FacesContext.getCurrentInstance().getExternalContext().redirect(path);
     }
     
