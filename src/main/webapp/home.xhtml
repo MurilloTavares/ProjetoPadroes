@@ -39,7 +39,7 @@
                                         <b:label value="#{atracao.duracaoMin} min."/>
 
                                         Ingressos disponíveis:
-                                        <b:label value="#{atracao.quantIngresso - atracao.reservas.size()}"/>
+                                        <b:label value="#{atracao.getVagasRestantes()}"/>
 
                                         Valor ingresso:
                                         <b:label value="#{atracao.valorIngresso.formatado}"/>

@@ -12,45 +12,59 @@
         <link href="resources/css/assentos.css" type="text/css" rel="stylesheet" />
     </h:head>
     <h:body>
-        <b:container>
-            <b:column span="4">
-                <b:thumbnail style="padding: 10px;">
-                    <center><h3>#{reservaController.atracao.nome}</h3></center>
-                    <b:panelGrid colSpans="7,5" style="padding-bottom: 10px;">
-                        Data de apresentação:
-                        <b:label value="dia #{reservaController.atracao.dataFormatada()}"/>
-                        Duração:
-                        <b:label value="#{reservaController.atracao.duracaoMin} min."/>
-                        Ingressos disponíveis:
-                        <b:label value="#{reservaController.atracao.quantIngresso - atracao.reservas.size()}"/>
-                        Valor ingresso:
-                        <b:label value="#{reservaController.atracao.valorIngresso.formatado}"/>
-                    </b:panelGrid>
-                </b:thumbnail>
-            </b:column>
+        <b:row>
+            <b:container fluid="true">
+            <b:button value="Voltar" href="home.xhtml"
+                      look="default" />
+            </b:container>
+        </b:row>
+        <b:row>
+            <b:container>
+                <b:column span="4">
+                    <b:thumbnail style="padding: 10px;">
+                        <center><h3>#{reservaController.atracao.nome}</h3></center>
+                        <b:panelGrid colSpans="7,5" style="padding-bottom: 10px;">
+                            Data de apresentação:
+                            <b:label value="dia #{reservaController.atracao.dataFormatada()}"/>
+                            Duração:
+                            <b:label value="#{reservaController.atracao.duracaoMin} min."/>
+                            Ingressos disponíveis:
+                            <b:label value="#{reservaController.atracao.quantIngresso - atracao.reservas.size()}"/>
+                            Valor ingresso:
+                            <b:label value="#{reservaController.atracao.valorIngresso.formatado}"/>
+                        </b:panelGrid>
+                    </b:thumbnail>
+                </b:column>
 
-            <b:column span="6">
-                <b:form>
-                    <b:inputText label="Nome Completo" value="#{reservaController.reserva.nome}"
-                                 required="true" requiredMessage="Nome obrigatório"/>
-                    <b:message />
-                    
-                    <b:inputText label="CPF" value="#{reservaController.reserva.cpf}"
-                                 required="true" requiredMessage="CPF obrigatório"
-                                 converter="converter.cpf" converterMessage="CPF inválido" 
-                                 maxlength="11" mask="integer"/>
-                    <b:message />
-                    
-                    <b:inputText label="Email" value="#{reservaController.reserva.email}"
-                                 required="true" requiredMessage="Email obrigatório" />
-                    <b:message />
-                    
-                    <b:commandButton value="Efetuar reserva" action="#{reservaController.reservar()}" />
-                </b:form>
-            </b:column>
+                <b:column span="6">
+                    <b:form rendered="#{reservaController.atracao.hasReserva()}">
+                        <b:inputText label="Nome Completo" value="#{reservaController.reserva.nome}"
+                                     required="true" requiredMessage="Nome obrigatório"
+                                     mask="a" />
+                        <b:message />
 
-        </b:container>
+                        <b:inputText label="CPF" value="#{reservaController.reserva.cpf}"
+                                     required="true" requiredMessage="CPF obrigatório"
+                                     converter="converter.cpf" converterMessage="CPF inválido" 
+                                     maxlength="11" mask="integer"/>
+                        <b:message />
 
+                        <b:inputText label="Email" value="#{reservaController.reserva.email}"
+                                     required="true" requiredMessage="Email obrigatório"
+                                     validator="validator.email" validatorMessage="Email inválido"/>
+                        <b:message />
+
+                        <b:commandButton value="Efetuar reserva" action="#{reservaController.reservar()}" />
+                    </b:form>
+                    
+                    <b:alert severity="danger" rendered="#{!reservaController.atracao.hasReserva()}">
+                        Os ingressos estão esgotados. <strong>=(</strong>
+                    </b:alert>
+
+                </b:column>
+
+            </b:container>
+        </b:row>
     </h:body>
 </html>
 

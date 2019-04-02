@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,7 +28,7 @@ public class Atracao implements Serializable {
     private Valor valorIngresso;
     private int duracaoMin;
     
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "atracao")
     private List<Reserva> reservas;
     
@@ -96,6 +97,14 @@ public class Atracao implements Serializable {
     public String dataFormatada(){
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         return dateFormat.format(dataApresentacao);
+    }
+    
+    public int getVagasRestantes() {
+        return quantIngresso - reservas.size();
+    }
+    
+    public boolean hasReserva() {
+        return getVagasRestantes() > 0;
     }
     
 }
