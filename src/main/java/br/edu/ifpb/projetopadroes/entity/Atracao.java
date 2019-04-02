@@ -1,6 +1,7 @@
 package br.edu.ifpb.projetopadroes.entity;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Embedded;
@@ -90,6 +91,11 @@ public class Atracao implements Serializable {
 
     public void setQuantIngresso(int quantIngresso) {
         this.quantIngresso = quantIngresso;
+    }
+    
+    public String dataFormatada(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        return dateFormat.format(dataApresentacao);
     }
     
 }
