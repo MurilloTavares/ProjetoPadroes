@@ -33,8 +33,10 @@ public class AtracaoController {
         return aDao.listar();
     }
     
-    public void salvar() {
+    public void salvar() throws IOException {
         aDao.salvar(atracao);
+        String path = "home.xhtml";
+        FacesContext.getCurrentInstance().getExternalContext().redirect(path);
     }
     
     public void atualizar() {
