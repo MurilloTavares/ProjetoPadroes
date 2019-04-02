@@ -21,8 +21,15 @@
             <!-- row das atracoes -->
             <b:row>
                 <b:container style="padding-top: 30px;">
-                    <b:row>
+                    <b:row style="margin-bottom: 30px;">
                         <h3> Atrações </h3>
+                        <b:dropMenu value="Ordenar por:">
+                            <b:navCommandLink value="Valor do ingresso"
+                                              action="#{atracaoController.ordenarPorIngresso()}" />
+                            
+                            <b:navCommandLink value="Data da apresentação"
+                                              action="#{atracaoController.ordenarPorData()}" />
+                        </b:dropMenu>
                     </b:row>
 
                     <b:row>
