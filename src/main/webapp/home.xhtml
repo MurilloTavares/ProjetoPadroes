@@ -26,7 +26,7 @@
                         <b:dropMenu value="Ordenar por:">
                             <b:navCommandLink value="Valor do ingresso"
                                               action="#{atracaoController.ordenarPorIngresso()}" />
-                            
+
                             <b:navCommandLink value="Data da apresentação"
                                               action="#{atracaoController.ordenarPorData()}" />
                         </b:dropMenu>
@@ -45,8 +45,19 @@
                                         Duração:
                                         <b:label value="#{atracao.duracaoMin} min."/>
 
-                                        Ingressos disponíveis:
-                                        <b:label value="#{atracao.getVagasRestantes()}"/>
+                                        <h:outputText value="Ingressos disponíveis:"
+                                                      rendered="#{atracao.hasReserva()}" />
+                                        <b:label value="#{atracao.getVagasRestantes()}"
+                                                 severity="success"
+                                                 rendered="#{atracao.hasReserva()}"/>
+
+
+                                        <h:outputText value="Ingressos disponíveis:"
+                                                      rendered="#{!atracao.hasReserva()}"  />  
+                                        <b:label value="#{atracao.getVagasRestantes()}"
+                                                 severity="danger"
+                                                 rendered="#{!atracao.hasReserva()}"/>
+
 
                                         Valor ingresso:
                                         <b:label value="#{atracao.valorIngresso.formatado}"/>

@@ -13,11 +13,11 @@
         <link href="resources/css/style.css" type="text/css" rel="stylesheet" />
     </h:head>
     <h:body>
-        <div id="top-row">
+        <div id="top-row" style="height: 100px;">
             <b:button value="Ver Atrações" href="home.xhtml"
                       look="success" size="lg"/>
         </div>
-     
+
         <b:row>
             <b:container style="margin-top: 35px;">
                 <b:column span="4">
@@ -26,10 +26,23 @@
                         <b:panelGrid colSpans="7,5" style="padding-bottom: 10px;">
                             Data de apresentação:
                             <b:label value="dia #{reservaController.atracao.dataFormatada()}"/>
+
                             Duração:
                             <b:label value="#{reservaController.atracao.duracaoMin} min."/>
-                            Ingressos disponíveis:
-                            <b:label value="#{reservaController.atracao.vagasRestantes}"/>
+
+                            <h:outputText value="Ingressos disponíveis:"
+                                          rendered="#{reservaController.atracao.hasReserva()}" />
+                            <b:label value="#{reservaController.atracao.getVagasRestantes()}"
+                                     severity="success"
+                                     rendered="#{reservaController.atracao.hasReserva()}"/>
+
+
+                            <h:outputText value="Ingressos disponíveis:"
+                                          rendered="#{!reservaController.atracao.hasReserva()}"  />  
+                            <b:label value="#{reservaController.atracao.getVagasRestantes()}"
+                                     severity="danger"
+                                     rendered="#{!reservaController.atracao.hasReserva()}"/>
+
                             Valor ingresso:
                             <b:label value="#{reservaController.atracao.valorIngresso.formatado}"/>
                         </b:panelGrid>
@@ -55,7 +68,11 @@
                         <b:message />
 
                         <b:commandButton value="Efetuar reserva" action="#{reservaController.reservar()}" />
+
                     </b:form>
+                    
+                    <h:outputText id="info" binding="#{reservaController.info}" />
+                    <b:message for="info"/>
                     
                     <b:alert severity="danger" rendered="#{!reservaController.atracao.hasReserva()}">
                         Os ingressos estão esgotados. <strong>=(</strong>

@@ -7,8 +7,10 @@ import br.edu.ifpb.projetopadroes.entity.Reserva;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
 @ManagedBean
@@ -22,6 +24,8 @@ public class ReservaController implements Serializable{
     
     private Atracao atracao;
     private Reserva reserva;
+    
+    private UIComponent info;
 
     @PostConstruct
     public void init() {
@@ -37,6 +41,15 @@ public class ReservaController implements Serializable{
     public void reservar(){
         rDao.reservar(atracao, reserva);
         atracao = aDao.buscar(atracao);
+        reserva = new Reserva();
+        msgInfo("Reserva efetuada com sucesso. =)");
+    }
+    
+    private void msgInfo(String msg) {
+        if (info != null) {
+            FacesContext.getCurrentInstance().addMessage(info.getClientId(),
+                    new FacesMessage(FacesMessage.SEVERITY_INFO, msg, null));
+        }
     }
     
     // Getters e Setters
@@ -54,6 +67,14 @@ public class ReservaController implements Serializable{
 
     public void setReserva(Reserva reserva) {
         this.reserva = reserva;
+    }
+
+    public UIComponent getInfo() {
+        return info;
+    }
+
+    public void setInfo(UIComponent info) {
+        this.info = info;
     }
     
 }
