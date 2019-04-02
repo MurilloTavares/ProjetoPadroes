@@ -1,0 +1,9 @@
+.dot {
+  height: 50px;
+  width: 50px;
+  background-color:#0174DF;
+  border-radius: 100%;
+  border-color: #0174DF;
+  display: inline-block;
+  color: white;
+}
