@@ -10,17 +10,16 @@
         <title>Cadastrar assentos</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="resources/css/assentos.css" type="text/css" rel="stylesheet" />
+        <link href="resources/css/style.css" type="text/css" rel="stylesheet" />
     </h:head>
     <h:body>
-        
+        <div id="top-row">
+            <b:button value="Ver Atrações" href="home.xhtml"
+                      look="success" size="lg"/>
+        </div>
+     
         <b:row>
-            <b:container fluid="true">
-            <b:button value="Voltar" href="home.xhtml"
-                      look="default" />
-            </b:container>
-        </b:row>
-        <b:row>
-            <b:container>
+            <b:container style="margin-top: 35px;">
                 <b:column span="4">
                     <b:thumbnail style="padding: 10px;">
                         <center><h3>#{reservaController.atracao.nome}</h3></center>
